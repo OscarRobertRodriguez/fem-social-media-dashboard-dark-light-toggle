@@ -12,7 +12,7 @@ function scssTask() {
   return src("app/scss/style.scss", { sourcemaps: true })
     .pipe(sass())
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(dest("docs/dist", { sourcemaps: "." }));
+    .pipe(dest("dist", { sourcemaps: "." }));
 }
 
 // js task
@@ -20,7 +20,7 @@ function jsTask() {
   return src("app/js/script.js", { sourcemaps: true })
     .pipe(babel({ presets: ["@babel/preset-env"] }))
     .pipe(terser())
-    .pipe(dest("docs/dist", { sourcemaps: "." }));
+    .pipe(dest("dist", { sourcemaps: "." }));
 }
 
 function browserSyncServe(cb) {
